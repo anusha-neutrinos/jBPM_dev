@@ -5,7 +5,13 @@
     <audit-mode>JPA</audit-mode>
     <persistence-mode>JPA</persistence-mode>
     <runtime-strategy>PER_PROCESS_INSTANCE</runtime-strategy>
-    <marshalling-strategies/>
+    <marshalling-strategies>
+        <marshalling-strategy>
+            <resolver>mvel</resolver>
+            <identifier>new org.drools.persistence.jpa.marshaller.JPAPlaceholderResolverStrategy("com.myteam:TTS_CC_IMS:1.0.2", classLoader)</identifier>
+            <parameters/>
+        </marshalling-strategy>
+    </marshalling-strategies>
     <event-listeners/>
     <task-event-listeners/>
     <globals>
@@ -23,6 +29,12 @@
         </global>
         <global>
             <resolver>mvel</resolver>
+            <identifier>":1882/mapi/jbpmAs400?taskMode=policyDetails"</identifier>
+            <parameters/>
+            <name>getpolicyurlconst</name>
+        </global>
+        <global>
+            <resolver>mvel</resolver>
             <identifier>"http://ttsagpjbpmdev.isservices.co.za:8080/kie-server/services/rest/server/queries/definitions/getInstanceID/data?mapper=RawList"</identifier>
             <parameters/>
             <name>incidentcounter</name>
@@ -32,6 +44,24 @@
             <identifier>"https://ttsagpnodedev.isservices.co.za:1882/mapi/"</identifier>
             <parameters/>
             <name>nodeurl</name>
+        </global>
+        <global>
+            <resolver>mvel</resolver>
+            <identifier>":1882/mapi/"</identifier>
+            <parameters/>
+            <name>nodeurlconst</name>
+        </global>
+        <global>
+            <resolver>mvel</resolver>
+            <identifier>":3000/bhive-art/telesure/datamodel/incident-rt/connected_claims_proxy/incidents/"</identifier>
+            <parameters/>
+            <name>mongourlconst</name>
+        </global>
+        <global>
+            <resolver>mvel</resolver>
+            <identifier>":8000/kie-server/services/rest/server/queries/definitions/getInstanceID/data?mapper=RawList"</identifier>
+            <parameters/>
+            <name>incidentcounterconst</name>
         </global>
     </globals>
     <work-item-handlers>

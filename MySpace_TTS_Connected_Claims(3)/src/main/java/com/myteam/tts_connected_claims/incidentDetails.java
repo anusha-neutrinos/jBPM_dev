@@ -5,6 +5,7 @@ package com.myteam.tts_connected_claims;
  */
 
 @javax.persistence.Entity
+@javax.persistence.Table(name = "incidentDetails")
 public class incidentDetails implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
@@ -144,7 +145,7 @@ public class incidentDetails implements java.io.Serializable {
 	private java.lang.String subCaseStatus;
 
 	@org.kie.api.definition.type.Label("toBeResolved")
-	private java.lang.Boolean toBeResolved;
+	private String toBeResolved;
 
 	@javax.persistence.ManyToOne(cascade = {javax.persistence.CascadeType.ALL}, fetch = javax.persistence.FetchType.EAGER)
 	@org.kie.api.definition.type.Label("eligibleServices")
@@ -168,6 +169,59 @@ public class incidentDetails implements java.io.Serializable {
 	@javax.persistence.ManyToOne(cascade = {javax.persistence.CascadeType.ALL}, fetch = javax.persistence.FetchType.EAGER)
 	@org.kie.api.definition.type.Label("incidentLocation")
 	private com.myteam.tts_connected_claims.location incidentLocation;
+
+	@org.kie.api.definition.type.Label("duplicateStatus")
+	private java.lang.Boolean duplicateStatus;
+
+	@org.kie.api.definition.type.Label("possibleDuplicate")
+	private java.lang.Boolean possibleDuplicate;
+
+	@javax.persistence.ElementCollection(fetch = javax.persistence.FetchType.EAGER)
+	@org.kie.api.definition.type.Label("listOfDuplicate")
+	private java.util.List<java.lang.String> listOfDuplicate;
+
+	@org.kie.api.definition.type.Label("unresolvableReason")
+	private java.lang.String unresolvableReason;
+
+	@org.kie.api.definition.type.Label("unresolvableReasonText")
+	private java.lang.String unresolvableReasonText;
+
+	@org.kie.api.definition.type.Label("unresolvableReasonOther")
+	private java.lang.String unresolvableReasonOther;
+
+	@org.kie.api.definition.type.Label("vehicleUpdatedFlag")
+	private java.lang.Boolean vehicleUpdatedFlag;
+
+	@org.kie.api.definition.type.Label("isReopenedCase")
+	private java.lang.Boolean isReopenedCase;
+
+	@org.kie.api.definition.type.Label("isMaster")
+	private java.lang.Boolean isMaster;
+
+	@org.kie.api.definition.type.Label("escalated")
+	private java.lang.Boolean escalated;
+
+	@org.kie.api.definition.type.Label("escalationDashboard")
+	private java.lang.Boolean escalationDashboard;
+
+	@org.kie.api.definition.type.Label("escalationReason")
+	private java.lang.String escalationReason;
+
+	@org.kie.api.definition.type.Label("escalationCategory")
+	private java.lang.String escalationCategory;
+
+	@javax.persistence.OneToMany(cascade = {javax.persistence.CascadeType.ALL}, fetch = javax.persistence.FetchType.EAGER)
+	@org.kie.api.definition.type.Label("escalatedServices")
+	private java.util.List<com.myteam.tts_connected_claims.escalatedServices> escalatedServices;
+
+	@org.kie.api.definition.type.Label("duplicateStatusText")
+	private java.lang.String duplicateStatusText;
+
+	@org.kie.api.definition.type.Label("duplicationResolved")
+	private java.lang.Boolean duplicationResolved;
+
+	@org.kie.api.definition.type.Label(value = "masterReference")
+	private java.lang.String masterReference;
 
 	public incidentDetails() {
 	}
@@ -629,14 +683,6 @@ public class incidentDetails implements java.io.Serializable {
 		this.subCaseStatus = subCaseStatus;
 	}
 
-	public java.lang.Boolean getToBeResolved() {
-		return this.toBeResolved;
-	}
-
-	public void setToBeResolved(java.lang.Boolean toBeResolved) {
-		this.toBeResolved = toBeResolved;
-	}
-
 	public com.myteam.tts_connected_claims.eligibleServices getEligibleServices() {
 		return this.eligibleServices;
 	}
@@ -715,6 +761,154 @@ public class incidentDetails implements java.io.Serializable {
 		this.caseTime = caseTime;
 	}
 
+	public java.lang.String getToBeResolved() {
+		return this.toBeResolved;
+	}
+
+	public void setToBeResolved(java.lang.String toBeResolved) {
+		this.toBeResolved = toBeResolved;
+	}
+
+	public java.lang.Boolean getDuplicateStatus() {
+		return this.duplicateStatus;
+	}
+
+	public void setDuplicateStatus(java.lang.Boolean duplicateStatus) {
+		this.duplicateStatus = duplicateStatus;
+	}
+
+	public java.lang.Boolean getPossibleDuplicate() {
+		return this.possibleDuplicate;
+	}
+
+	public void setPossibleDuplicate(java.lang.Boolean possibleDuplicate) {
+		this.possibleDuplicate = possibleDuplicate;
+	}
+
+	public java.util.List<java.lang.String> getListOfDuplicate() {
+		return this.listOfDuplicate;
+	}
+
+	public void setListOfDuplicate(
+			java.util.List<java.lang.String> listOfDuplicate) {
+		this.listOfDuplicate = listOfDuplicate;
+	}
+
+	public java.lang.String getUnresolvableReason() {
+		return this.unresolvableReason;
+	}
+
+	public void setUnresolvableReason(java.lang.String unresolvableReason) {
+		this.unresolvableReason = unresolvableReason;
+	}
+
+	public java.lang.String getUnresolvableReasonText() {
+		return this.unresolvableReasonText;
+	}
+
+	public void setUnresolvableReasonText(
+			java.lang.String unresolvableReasonText) {
+		this.unresolvableReasonText = unresolvableReasonText;
+	}
+
+	public java.lang.String getUnresolvableReasonOther() {
+		return this.unresolvableReasonOther;
+	}
+
+	public void setUnresolvableReasonOther(
+			java.lang.String unresolvableReasonOther) {
+		this.unresolvableReasonOther = unresolvableReasonOther;
+	}
+
+	public java.lang.Boolean getVehicleUpdatedFlag() {
+		return this.vehicleUpdatedFlag;
+	}
+
+	public void setVehicleUpdatedFlag(java.lang.Boolean vehicleUpdatedFlag) {
+		this.vehicleUpdatedFlag = vehicleUpdatedFlag;
+	}
+
+	public java.lang.Boolean getIsReopenedCase() {
+		return this.isReopenedCase;
+	}
+
+	public void setIsReopenedCase(java.lang.Boolean isReopenedCase) {
+		this.isReopenedCase = isReopenedCase;
+	}
+
+	public java.lang.Boolean getIsMaster() {
+		return this.isMaster;
+	}
+
+	public void setIsMaster(java.lang.Boolean isMaster) {
+		this.isMaster = isMaster;
+	}
+
+	public java.lang.Boolean getEscalated() {
+		return this.escalated;
+	}
+
+	public void setEscalated(java.lang.Boolean escalated) {
+		this.escalated = escalated;
+	}
+
+	public java.lang.Boolean getEscalationDashboard() {
+		return this.escalationDashboard;
+	}
+
+	public void setEscalationDashboard(java.lang.Boolean escalationDashboard) {
+		this.escalationDashboard = escalationDashboard;
+	}
+
+	public java.lang.String getEscalationReason() {
+		return this.escalationReason;
+	}
+
+	public void setEscalationReason(java.lang.String escalationReason) {
+		this.escalationReason = escalationReason;
+	}
+
+	public java.lang.String getEscalationCategory() {
+		return this.escalationCategory;
+	}
+
+	public void setEscalationCategory(java.lang.String escalationCategory) {
+		this.escalationCategory = escalationCategory;
+	}
+
+	public java.util.List<com.myteam.tts_connected_claims.escalatedServices> getEscalatedServices() {
+		return this.escalatedServices;
+	}
+
+	public void setEscalatedServices(
+			java.util.List<com.myteam.tts_connected_claims.escalatedServices> escalatedServices) {
+		this.escalatedServices = escalatedServices;
+	}
+
+	public java.lang.String getDuplicateStatusText() {
+		return this.duplicateStatusText;
+	}
+
+	public void setDuplicateStatusText(java.lang.String duplicateStatusText) {
+		this.duplicateStatusText = duplicateStatusText;
+	}
+
+	public java.lang.Boolean getDuplicationResolved() {
+		return this.duplicationResolved;
+	}
+
+	public void setDuplicationResolved(java.lang.Boolean duplicationResolved) {
+		this.duplicationResolved = duplicationResolved;
+	}
+
+	public java.lang.String getMasterReference() {
+		return this.masterReference;
+	}
+
+	public void setMasterReference(java.lang.String masterReference) {
+		this.masterReference = masterReference;
+	}
+
 	public incidentDetails(
 			java.lang.Long incidentTime,
 			java.lang.String location,
@@ -751,19 +945,38 @@ public class incidentDetails implements java.io.Serializable {
 			com.myteam.tts_connected_claims.vehicleInnerDamage vehicleInnerDamage,
 			java.lang.String drivableUpdateReason,
 			com.myteam.tts_connected_claims.vehicleOuterDamage vehicleOuterDamage,
-			java.lang.Long caseTime, java.lang.String agentName,
+			java.lang.Long caseTime,
+			java.lang.String agentName,
 			java.lang.String drivableReasonOther,
 			java.lang.String incidentDriverAssociation,
 			java.lang.String riskitemSequenceNo,
 			java.lang.String speakingToDisplayValue,
-			java.lang.String subCaseStatus, java.lang.Boolean toBeResolved,
+			java.lang.String subCaseStatus,
+			java.lang.String toBeResolved,
 			com.myteam.tts_connected_claims.eligibleServices eligibleServices,
 			java.lang.Boolean servicesEnabled,
 			java.lang.String otherIncidentDriverRelationDesc,
 			java.lang.String otherIncidentDriverRelationCode,
 			java.lang.String otherIncidentDriverContactInfo,
 			java.lang.String otherIncidentDriverName,
-			com.myteam.tts_connected_claims.location incidentLocation) {
+			com.myteam.tts_connected_claims.location incidentLocation,
+			java.lang.Boolean duplicateStatus,
+			java.lang.Boolean possibleDuplicate,
+			java.util.List<java.lang.String> listOfDuplicate,
+			java.lang.String unresolvableReason,
+			java.lang.String unresolvableReasonText,
+			java.lang.String unresolvableReasonOther,
+			java.lang.Boolean vehicleUpdatedFlag,
+			java.lang.Boolean isReopenedCase,
+			java.lang.Boolean isMaster,
+			java.lang.Boolean escalated,
+			java.lang.Boolean escalationDashboard,
+			java.lang.String escalationReason,
+			java.lang.String escalationCategory,
+			java.util.List<com.myteam.tts_connected_claims.escalatedServices> escalatedServices,
+			java.lang.String duplicateStatusText,
+			java.lang.Boolean duplicationResolved,
+			java.lang.String masterReference) {
 		this.incidentTime = incidentTime;
 		this.location = location;
 		this.description = description;
@@ -814,6 +1027,23 @@ public class incidentDetails implements java.io.Serializable {
 		this.otherIncidentDriverContactInfo = otherIncidentDriverContactInfo;
 		this.otherIncidentDriverName = otherIncidentDriverName;
 		this.incidentLocation = incidentLocation;
+		this.duplicateStatus = duplicateStatus;
+		this.possibleDuplicate = possibleDuplicate;
+		this.listOfDuplicate = listOfDuplicate;
+		this.unresolvableReason = unresolvableReason;
+		this.unresolvableReasonText = unresolvableReasonText;
+		this.unresolvableReasonOther = unresolvableReasonOther;
+		this.vehicleUpdatedFlag = vehicleUpdatedFlag;
+		this.isReopenedCase = isReopenedCase;
+		this.isMaster = isMaster;
+		this.escalated = escalated;
+		this.escalationDashboard = escalationDashboard;
+		this.escalationReason = escalationReason;
+		this.escalationCategory = escalationCategory;
+		this.escalatedServices = escalatedServices;
+		this.duplicateStatusText = duplicateStatusText;
+		this.duplicationResolved = duplicationResolved;
+		this.masterReference = masterReference;
 	}
 
 }

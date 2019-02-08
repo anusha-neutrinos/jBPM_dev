@@ -9,23 +9,26 @@ public class vehicles implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
 
-	@org.kie.api.definition.type.Label(value = "description")
+	@org.kie.api.definition.type.Label("description")
 	private java.lang.String description;
 
-	@org.kie.api.definition.type.Label(value = "make")
+	@org.kie.api.definition.type.Label("make")
 	private java.lang.String make;
 
-	@org.kie.api.definition.type.Label(value = "model")
+	@org.kie.api.definition.type.Label("model")
 	private java.lang.String model;
 
-	@org.kie.api.definition.type.Label(value = "registrationNumber")
+	@org.kie.api.definition.type.Label("registrationNumber")
 	private java.lang.String registrationNumber;
 
-	@org.kie.api.definition.type.Label(value = "year")
+	@org.kie.api.definition.type.Label("year")
 	private java.lang.String year;
 
-	@org.kie.api.definition.type.Label(value = "regularDriver")
+	@org.kie.api.definition.type.Label("regularDriver")
 	private java.lang.String regularDriver;
+
+	@org.kie.api.definition.type.Label(value = "riskItemSequenceNumber")
+	private java.lang.String riskItemSequenceNumber;
 
 	public vehicles() {
 	}
@@ -78,15 +81,26 @@ public class vehicles implements java.io.Serializable {
 		this.regularDriver = regularDriver;
 	}
 
+	public java.lang.String getRiskItemSequenceNumber() {
+		return this.riskItemSequenceNumber;
+	}
+
+	public void setRiskItemSequenceNumber(
+			java.lang.String riskItemSequenceNumber) {
+		this.riskItemSequenceNumber = riskItemSequenceNumber;
+	}
+
 	public vehicles(java.lang.String description, java.lang.String make,
 			java.lang.String model, java.lang.String registrationNumber,
-			java.lang.String year, java.lang.String regularDriver) {
+			java.lang.String year, java.lang.String regularDriver,
+			java.lang.String riskItemSequenceNumber) {
 		this.description = description;
 		this.make = make;
 		this.model = model;
 		this.registrationNumber = registrationNumber;
 		this.year = year;
 		this.regularDriver = regularDriver;
+		this.riskItemSequenceNumber = riskItemSequenceNumber;
 	}
 
 }

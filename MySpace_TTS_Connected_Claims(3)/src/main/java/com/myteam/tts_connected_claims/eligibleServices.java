@@ -8,16 +8,25 @@ public class eligibleServices implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
 
-	@org.kie.api.definition.type.Label(value = "medical")
+	@org.kie.api.definition.type.Label("medical")
 	private java.lang.Boolean medical;
-	@org.kie.api.definition.type.Label(value = "towing")
+	@org.kie.api.definition.type.Label("towing")
 	private java.lang.Boolean towing;
-	@org.kie.api.definition.type.Label(value = "roadsideAssist")
+	@org.kie.api.definition.type.Label("roadsideAssist")
 	private java.lang.Boolean roadsideAssist;
-	@org.kie.api.definition.type.Label(value = "taxi")
+	@org.kie.api.definition.type.Label("taxi")
 	private java.lang.Boolean taxi;
-	@org.kie.api.definition.type.Label(value = "carHire")
+	@org.kie.api.definition.type.Label("carHire")
 	private java.lang.Boolean carHire;
+
+	@org.kie.api.definition.type.Label("recovery")
+	private java.lang.Boolean recovery;
+
+	@org.kie.api.definition.type.Label("tradeTow")
+	private java.lang.Boolean tradeTow;
+
+	@org.kie.api.definition.type.Label(value = "stock")
+	private java.lang.Boolean stock;
 
 	public eligibleServices() {
 	}
@@ -62,14 +71,43 @@ public class eligibleServices implements java.io.Serializable {
 		this.carHire = carHire;
 	}
 
+	public java.lang.Boolean getRecovery() {
+		return this.recovery;
+	}
+
+	public void setRecovery(java.lang.Boolean recovery) {
+		this.recovery = recovery;
+	}
+
+	public java.lang.Boolean getTradeTow() {
+		return this.tradeTow;
+	}
+
+	public void setTradeTow(java.lang.Boolean tradeTow) {
+		this.tradeTow = tradeTow;
+	}
+
+	public java.lang.Boolean getStock() {
+		return this.stock;
+	}
+
+	public void setStock(java.lang.Boolean stock) {
+		this.stock = stock;
+	}
+
 	public eligibleServices(java.lang.Boolean medical,
 			java.lang.Boolean towing, java.lang.Boolean roadsideAssist,
-			java.lang.Boolean taxi, java.lang.Boolean carHire) {
+			java.lang.Boolean taxi, java.lang.Boolean carHire,
+			java.lang.Boolean recovery, java.lang.Boolean tradeTow,
+			java.lang.Boolean stock) {
 		this.medical = medical;
 		this.towing = towing;
 		this.roadsideAssist = roadsideAssist;
 		this.taxi = taxi;
 		this.carHire = carHire;
+		this.recovery = recovery;
+		this.tradeTow = tradeTow;
+		this.stock = stock;
 	}
 
 }

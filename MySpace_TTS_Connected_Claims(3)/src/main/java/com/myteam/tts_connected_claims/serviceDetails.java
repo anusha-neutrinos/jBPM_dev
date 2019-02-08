@@ -69,8 +69,26 @@ public class serviceDetails implements java.io.Serializable {
 	@org.kie.api.definition.type.Label("vendorServiceId")
 	private java.lang.String vendorServiceId;
 
-	@org.kie.api.definition.type.Label(value = "incidentServiceSubtype")
+	@org.kie.api.definition.type.Label("incidentServiceSubtype")
 	private java.lang.String incidentServiceSubtype;
+
+	@org.kie.api.definition.type.Label("initialEta")
+	private java.lang.String initialEta;
+
+	@org.kie.api.definition.type.Label("previousServiceProviders")
+	private java.util.List<com.myteam.tts_connected_claims.previousServiceProviders> previousServiceProviders;
+
+	@org.kie.api.definition.type.Label(value = "escalated")
+	private java.lang.Boolean escalated;
+
+	@org.kie.api.definition.type.Label(value = "escalationDashboard")
+	private java.lang.Boolean escalationDashboard;
+
+	@org.kie.api.definition.type.Label(value = "escalationReason")
+	private java.lang.String escalationReason;
+
+	@org.kie.api.definition.type.Label(value = "escalationCategory")
+	private java.lang.String escalationCategory;
 
 	public serviceDetails() {
 	}
@@ -319,6 +337,55 @@ public class serviceDetails implements java.io.Serializable {
 		this.incidentServiceSubtype = incidentServiceSubtype;
 	}
 
+	public java.lang.String getInitialEta() {
+		return this.initialEta;
+	}
+
+	public void setInitialEta(java.lang.String initialEta) {
+		this.initialEta = initialEta;
+	}
+
+	public java.util.List<com.myteam.tts_connected_claims.previousServiceProviders> getPreviousServiceProviders() {
+		return this.previousServiceProviders;
+	}
+
+	public void setPreviousServiceProviders(
+			java.util.List<com.myteam.tts_connected_claims.previousServiceProviders> previousServiceProviders) {
+		this.previousServiceProviders = previousServiceProviders;
+	}
+
+	public java.lang.Boolean getEscalated() {
+		return this.escalated;
+	}
+
+	public void setEscalated(java.lang.Boolean escalated) {
+		this.escalated = escalated;
+	}
+
+	public java.lang.Boolean getEscalationDashboard() {
+		return this.escalationDashboard;
+	}
+
+	public void setEscalationDashboard(java.lang.Boolean escalationDashboard) {
+		this.escalationDashboard = escalationDashboard;
+	}
+
+	public java.lang.String getEscalationReason() {
+		return this.escalationReason;
+	}
+
+	public void setEscalationReason(java.lang.String escalationReason) {
+		this.escalationReason = escalationReason;
+	}
+
+	public java.lang.String getEscalationCategory() {
+		return this.escalationCategory;
+	}
+
+	public void setEscalationCategory(java.lang.String escalationCategory) {
+		this.escalationCategory = escalationCategory;
+	}
+
 	public serviceDetails(
 			com.myteam.tts_connected_claims.location actualDestination,
 			java.lang.String containerId,
@@ -344,10 +411,16 @@ public class serviceDetails implements java.io.Serializable {
 			java.lang.String serviceTriggerSource,
 			java.lang.String serviceType,
 			java.lang.String vendorCaseCreatedTime,
-			java.lang.String vendorCaseId, java.lang.String vendorName,
+			java.lang.String vendorCaseId,
+			java.lang.String vendorName,
 			java.lang.String vendorServiceCreatedTime,
 			java.lang.String vendorServiceId,
-			java.lang.String incidentServiceSubtype) {
+			java.lang.String incidentServiceSubtype,
+			java.lang.String initialEta,
+			java.util.List<com.myteam.tts_connected_claims.previousServiceProviders> previousServiceProviders,
+			java.lang.Boolean escalated, java.lang.Boolean escalationDashboard,
+			java.lang.String escalationReason,
+			java.lang.String escalationCategory) {
 		this.actualDestination = actualDestination;
 		this.containerId = containerId;
 		this.customerDirectedDestination = customerDirectedDestination;
@@ -377,6 +450,12 @@ public class serviceDetails implements java.io.Serializable {
 		this.vendorServiceCreatedTime = vendorServiceCreatedTime;
 		this.vendorServiceId = vendorServiceId;
 		this.incidentServiceSubtype = incidentServiceSubtype;
+		this.initialEta = initialEta;
+		this.previousServiceProviders = previousServiceProviders;
+		this.escalated = escalated;
+		this.escalationDashboard = escalationDashboard;
+		this.escalationReason = escalationReason;
+		this.escalationCategory = escalationCategory;
 	}
 
 }

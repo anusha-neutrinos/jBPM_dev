@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.myteam</groupId>
   <artifactId>TTS_CC_IMS</artifactId>
-  <version>2.0.2</version>
+  <version>2.1.7</version>
   <name>TTS_Connected_Claims</name>
   <description>TTS Connected Claims application is the middleware layer thatfacilitates the process flow of Incident management and to and fro data transfer / request-response communication with third party service providers. The entire case managemnt flow of incident to claims management is designed and deployed.</description>
   <repositories>
